@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Shocker</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel ="stylesheet" href="https://www.flaticon.com/free-icons/online-shop">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="header">
+        <a href ="#"><img src="img/icon/logo1.png"alt="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+                <li id="logout"><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <li id="user-info"><a href="#"><span id="username"></span></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id = "bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+  
+    <section id="display-page">
+        
+        <h2>#stayshock</h2>
+        <p>Save more by using coupons & up to 80% off!</p>
+    </section>
+    <section id ="product1" class ="section-p1">
+        <div class="pro-container">
+            <div class="pro" id="product1">
+                <img src="img/T shirts/T1.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Short Sleeve Varsity T-Shirt With Graphic </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$80.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product1')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product2">
+                <img src="img/T shirts/T2.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Black Dr. Dre T-shirt </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$48.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product2')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product3">
+                <img src="img/T shirts/T3.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Plush T-Shirt with Leather Effect Detail</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$30.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product3')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product4">
+                <img src="img/T shirts/T4.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Faded Pink Floyd T-Shirt </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$50.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product4')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product5">
+                <img src="img/T shirts/T5.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Green Day T-Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$60.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product5')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product6">
+                <img src="img/T shirts/T6.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Bob Marley European Tour 1997 T-Shirt  </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$80.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product6')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product7">
+                <img src="img/Best Sellers/Striped T-Shirt.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Striped T-Shirt </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$40.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product7')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product8">
+                <img src="img/Best Sellers/Short sleeve rustic palm tree shirt.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Short Sleeve Rustic Palm Tress Shirt </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$40.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product8')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product9">
+                <img src="img/Best Sellers/Logo Hoodie.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Logo Hoodie</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$45.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product9')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product10">
+                <img src="img/Best Sellers/California Hoodie.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>California Hoodie </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$50.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product10')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product11">
+                <img src="img/Best Sellers/Cargo Bermuda shorts.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Cargo Bermuda Shorts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$60.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product11')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+
+            <div class="pro" id="product12">
+                <img src="img/Best Sellers/Faded denim Bermuda shorts.jpg"alt="">
+                <div class="des">
+                    <span>Pull & Bear</span>
+                    <h5>Faded Denim Bermuda Shorts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$45.00</h4>
+                </div>
+                <div class="cart-icon" onclick="addToCart('product12')"><i class="fal fa-shopping-cart cart"></i></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id ="pagenation" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Updates</h4>
+            <p>Get E-mail updates about our latest sales and <span>special offers</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class ="logo" src="img/icon/logo1.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> 231 Bukit Timah Road, Street 62, Singapore</p>
+            <p><strong>Phone: </strong> 9786 8264 / (+65) 9023 4721</p>
+            <p><strong>Hours:</strong> 09:00 - 20:00. Mon - Sun</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src ="img/Pay/App.png" alt="">
+                <img src="img/Pay/google.png" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/Pay/payment.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2023 - Shocker CO.LTD ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
