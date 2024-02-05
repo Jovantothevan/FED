@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shocker - Thunder Login</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Dark stormy sky background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    form {
+      background-color: rgba(0, 0, 0, 0.8); /* Dark form background for contrast */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+      position: relative;
+    }
+    form:before {
+      content: '';
+      position: absolute;
+      top: -10px; right: -10px; bottom: -10px; left: -10px;
+      z-index: -1;
+      background: linear-gradient(to right, #f7971e, #ffd200); /* Lightning bolt colors */
+      background-size: cover;
+      border-radius: 20px; 
+      filter: blur(8px);
+    }
+    h2 {
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+    label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: 1px solid #4da8da; /* Electric blue border */
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #333;
+    }
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .remember-forgot a {
+      text-decoration: none;
+      color: #4da8da; /* Electric blue links */
+    }
+    button {
+      background-color: #4da8da; /* Electric blue button */
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3b8dbd; /* Darker shade for hover */
+    }
+    .register-link {
+      margin-top: 20px;
+    }
+    .register-link a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <h2>Store Login</h2>
+    <label for="login-username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="login-password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <div class="remember-forgot">
+      <div>
+        <label>Remember Me</label>
+        <input type="checkbox">
+      </div>
+      <a href="#">Forgot Password?</a>
+    </div>
+    
+    <button type="button" id="login-btn">Login</button>
+    <div class="register-link">
+      <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+  </form>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+  <script src="script.js"></script>
+</body>
+</html>
