@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Dark stormy sky background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    form {
+      background-color: rgba(0, 0, 0, 0.8); /* Dark form background */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+      position: relative;
+    }
+    form:before {
+      content: '';
+      position: absolute;
+      top: -10px; right: -10px; bottom: -10px; left: -10px;
+      z-index: -1;
+      background: linear-gradient(to right, #f7971e, #ffd200); /* Lightning bolt colors */
+      background-size: cover;
+      border-radius: 20px; 
+      filter: blur(8px);
+    }
+    label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: 1px solid #4da8da; /* Electric blue border */
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #333;
+    }
+    button {
+      background-color: #4da8da; /* Electric blue button */
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3b8dbd; /* Darker shade for hover */
+    }
+  </style>
+</head>
+<body>
+  <form id="registerForm">
+    <label for="create-name">Choose a Username:</label>
+    <input type="text" id="create-name" name="create-name" required>
+    
+    <label for="create-password">Create a Password:</label>
+    <input type="password" id="create-password" name="create-password" required>
+    
+    <button type="button" id="register-btn">Join the Store</button>
+  </form>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+  <script src="script.js"></script>
+</body>
+</html>
