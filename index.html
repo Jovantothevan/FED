@@ -8,10 +8,196 @@
     <title>Shocker</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel ="stylesheet" href="https://www.flaticon.com/free-icons/online-shop">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+.container {
+      display: flex; /* Initially hidden */
+      position: fixed; /* Use fixed to overlay on top of the page content */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: #fff; /* Background color for visibility */
+      border-radius: 20px; /* Optional: for rounded corners */
+      box-shadow: 0 5px 15px rgba(0,0,0,.5); /* Optional: for shadow */
+      z-index: 1000; /* Ensure it sits above other content */
+      justify-content: center;
+    align-items: center;
+     flex-direction: column; /* Stack children vertically */
+    }
+    .container .spinBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the button exactly */
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0,0,0,0.75);
+    cursor: pointer;
+    user-select: none;
+}
 
+/* Additional style for the spin button's pointer/indicator */
+.container .spinBtn::before {
+    content: '';
+    position: absolute;
+    top: -28px; /* Adjust if necessary */
+    left: 50%;
+    transform: translateX(-50%); /* Center the pointer */
+    width: 20px;
+    height: 30px;
+    background: #fff;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.container .wheel
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #444;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #444,
+    0 0 0 15px #fff,
+    0 0 0 18px #111;
+    transition: transform 5s ease-in-out;
+}
+
+.container .wheel .number
+{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56% );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container .wheel .number span
+{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0,0,0 ,0.15 );
+}
+
+.container .number span::after
+{
+    content: '';
+    position:absolute ;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+/* Style for message container */
+.container .message {
+    position: absolute;
+    top: 30%; /* Adjust based on your design needs */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff; /* Choose a color that contrasts well with your background */
+    font-weight: 500;
+    text-align: center;
+    z-index: 11; /* Ensure it's above the spin button */
+    width: 100%; /* May adjust based on desired width */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.06); /* Black w/ opacity */
+  }
+  
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .centered-content {
+  position: absolute;
+  top: 20%; /* Slightly lower than the original to not overlap with the spin button */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  text-align: center;
+  padding: 30px 50px; /* Increased padding for a larger space */
+  margin-top: 20px; /* Add some space above the message box */
+  box-sizing: border-box;
+  width: 250%; /* Adjusted width for a larger message box */
+  max-width: 150%; /* Ensures the box doesn't get too wide on smaller screens */
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly opaque for better visibility */
+  border-radius: 15px; /* Softer corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+  color: #333;
+  font-size: 1.2rem; /* Larger font size for readability */
+  z-index: 1050; /* Ensures it's above other overlay elements */
+}
+
+.modal-content {
+  /* Ensure this doesn't interfere with the visibility and positioning of your message */
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+  
+      /* Add all other styles from your wheel.css here */
+  
+      /* Styles for the overlay background */
+      .overlay {
+        display: none; /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+        z-index: 999; /* Sit below the modal but above other content */
+      }
+  
+      /* Update modal, modal-content, and other relevant styles to fit within the popup design */
+    </style></style>
 </head>
 <body>
 
@@ -35,6 +221,7 @@
             <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
             <i id = "bar" class="fas fa-outdent"></i>
         </div>
+        
     </section>
     <section id="display">
         <h4>Trade-in-offer</h4>
@@ -371,7 +558,104 @@
         <div class="copyright">
             <p>© 2023 - Shocker CO.LTD ALL RIGHTS RESERVED</p>
         </div>
+        <div class="overlay"></div> <!-- Overlay for modal background -->
+
+<div class="container">
+  <!-- Your Spin the Wheel HTML -->
+  <button class="spinBtn">Spin</button>
+  <div class="wheel" id="wheel">
+   <!-- Segment definitions (ensure these match your CSS for visual alignment) -->
+   <div class="number" style="--i:1; --clr:#db7093;"><span>1</span></div>
+   <div class="number" style="--i:2; --clr:#70dbdb;"><span>2</span></div>
+   <div class="number" style="--i:3; --clr:#c46415;"><span>3</span></div>
+   <div class="number" style="--i:4; --clr:#e72929;"><span>4</span></div> <!-- Adjusted positions for 15% and 35% -->
+   <div class="number" style="--i:5; --clr:#23d30c;"><span>5</span></div>
+   <div class="number" style="--i:6; --clr:#d5d80c;"><span>6</span></div>
+   <div class="number" style="--i:7; --clr:#af0cd8;"><span>7</span></div> <!-- Adjusted positions for 15% and 35% -->
+   <div class="number" style="--i:8; --clr:#d80c61;"><span>8</span></div>
+   
+  </div>
+  
+  <!-- Prize Modal -->
+  <div id="prizeModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="prizeMessage" class="centered-content">Congratulations! You won a prize!</p>
+    </div>
+  </div>
+</div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Your existing JavaScript here
+        document.addEventListener('DOMContentLoaded', () => {
+          let wheel = document.querySelector('.wheel');
+          let spinBtn = document.querySelector('.spinBtn');
+          let overlay = document.querySelector('.overlay');
+          let container = document.querySelector('.container');
+          let deg = 0;
+      
+          // Show the wheel modal function
+          function showWheel() {
+              overlay.style.display = 'block';
+              container.style.display = 'flex'; // Use 'flex' to center the wheel if your container uses flexbox
+          }
+      
+          // Call showWheel to display the spin wheel modal immediately on page load
+          showWheel();
+      
+          // Function to hide the modal and overlay
+          function hideModal() {
+              overlay.style.display = 'none';
+              container.style.display = 'none';
+          }
+      
+          // Closing the modal with the close button
+          document.querySelector('.close').onclick = hideModal;
+      
+          // Closing the modal by clicking outside the wheel
+          overlay.onclick = hideModal;
+      
+          // Spin the wheel
+          spinBtn.onclick = () => {
+              deg += Math.floor(5000 + Math.random() * 5000); // Ensure a significant spin
+              wheel.style.transition = 'all 5s ease-out';
+              wheel.style.transform = `rotate(${deg}deg)`;
+          };
+      
+          wheel.addEventListener('transitionend', () => {
+              wheel.style.transition = 'none';
+              const actualDeg = deg % 360;
+              wheel.style.transform = `rotate(${actualDeg}deg)`;
+              const prize = showPrize(actualDeg);
+              document.getElementById('prizeMessage').innerHTML = `Congratulations! You won a ${prize.discount} discount! Use code: ${prize.code}`;
+              showModal();
+          });
+      
+          // Show prize modal
+          function showModal() {
+              // This function already correctly handles showing the modal, no changes needed here
+              var modal = document.getElementById('prizeModal');
+              modal.style.display = "block";
+          }
+          // Determine the prize based on the wheel spin
+          function showPrize(deg) {
+              const prizes = [
+                  { range: [0, 45], discount: '5%', code: 'COUPON5' },
+                  { range: [46, 90], discount: '10%', code: 'COUPON10' },
+                  { range: [91, 135], discount: '15%', code: 'COUPON15' },
+                  { range: [136, 180], discount: '20%', code: 'COUPON20' },
+                  { range: [181, 225], discount: '25%', code: 'COUPON25' },
+                  { range: [226, 270], discount: '35%', code: 'COUPON35' },
+                  { range: [271, 315], discount: '45%', code: 'COUPON45' },
+                  { range: [316, 360], discount: '55%', code: 'COUPON55' },
+              ];
+              deg = deg % 360; // Normalize the degree to a 0-359 range
+              const prize = prizes.find(p => deg >= p.range[0] && deg <= p.range[1]);
+              return prize || prizes[0]; // Default to the first prize if something goes wrong
+          }
+      });
+      
+      </script>
 </body>
 </html>
